@@ -10,10 +10,6 @@ To get a ``Fridge\DBAL\Query\QueryBuilder``, you need to call the ``createQueryB
 
     $queryBuilder = $connection->createQueryBuilder();
 
-.. note::
-
-    Each time you call this method, you get a new query builder instance.
-
 API
 ---
 
