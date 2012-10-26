@@ -501,7 +501,7 @@ Each methods can take as second parameter any ``PDO::PARAM_*`` type or any :doc:
 Get Query
 ---------
 
-To get your query, you just need to call the ``getQuery`` method.
+To get your query, you need to call the ``getQuery`` method.
 
 .. code-block:: php
 
@@ -519,13 +519,7 @@ To execute your query, you just need to call the ``execute`` method.
 Reset Builder
 -------------
 
-The query builder is composed of parts, so, if you want to reset your query builder, you need to reset all of them:
-
-.. code-block:: php
-
-    $queryBuilder->resetParts();
-
-A query builder is composed of the following parts:
+The query builder is composed of parts:
 
 * select
 * from
@@ -550,5 +544,11 @@ reset.
 .. code-block:: php
 
     $queryBuilder->resetParts(array('offset', 'limit'));
+
+if you want to reset all parts, you can simply call the ``resetParts`` function.
+
+.. code-block:: php
+
+    $queryBuilder->resetParts();
 
 .. _fluent interface: http://en.wikipedia.org/wiki/Fluent_interface
