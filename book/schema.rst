@@ -614,7 +614,7 @@ To collect SQL queries, you need to use the ``Fridge\DBAL\SchemaManager\SQLColle
 Table Comparison
 ^^^^^^^^^^^^^^^^
 
-To compare two schemas, you need the ``Fridge\DBAL\Schema\Comparator\TableComparator``.
+To compare two tables, you need the ``Fridge\DBAL\Schema\Comparator\TableComparator``.
 
 .. code-block:: php
 
@@ -644,7 +644,7 @@ To collect SQL queries, you need to use the ``Fridge\DBAL\SchemaManager\SQLColle
 Column Comparison
 ^^^^^^^^^^^^^^^^^
 
-To compare two schemas, you need the ``Fridge\DBAL\Schema\Comparator\ColumnComparator``.
+To compare two columns, you need the ``Fridge\DBAL\Schema\Comparator\ColumnComparator``.
 
 .. code-block:: php
 
