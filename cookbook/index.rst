@@ -1,4 +1,7 @@
 The Cookbook
 ============
 
-This document is not yet written but will be soon.
+.. toctree::
+    :maxdepth: 1
+
+    debugging
