@@ -9,6 +9,9 @@ To get a ``Fridge\DBAL\Query\Expression\ExpressionBuilder``, you need to call th
 your connection or query builder.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expressionBuilder = $connection->getExpressionBuilder();
     $expressionBuilder = $queryBuilder->getExpressionBuilder();
@@ -26,6 +29,9 @@ And Expression
 To build an ``AND`` expression, you need to call the ``andX`` method and then specify your expression parts as an array.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->andX(array('foo = ?', 'bar = ?'));
 
@@ -37,6 +43,9 @@ Or Expression
 To build an ``OR`` expression, you need to call the ``orX`` method and the specify your expresssion parts as an array.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->orX(array('foo = ?', 'bar = ?'));
 
@@ -49,6 +58,9 @@ A composite expression represents the mix between an ``AND`` expression & an ``O
 expression can be made up of expressions herself that means you can build an Or/And expression like that:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->orX(array(
         'foo = ?',
@@ -70,6 +82,9 @@ Equal
 To build a equal expression, you meed to call the ``equal`` method and then specify the two elements to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->equal('foo', '?');
 
@@ -81,6 +96,9 @@ Not Equal
 To build a non equal expression, you meed to call the ``notEqual`` method and then specify the two elements to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->notEqual('foo', '?');
 
@@ -93,6 +111,9 @@ To build a greater than expression, you meed to call the ``greaterThan`` method 
 compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->greatedThan('foo', '?');
 
@@ -105,6 +126,9 @@ To build a greater than or equal expression, you meed to call the ``greaterThanO
 two elements to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->greaterThanOrEqual('foo', '?');
 
@@ -117,6 +141,9 @@ To build a lower than expression, you meed to call the ``lowerThan`` method and 
 compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->lowerThan('foo', '?');
 
@@ -129,6 +156,9 @@ To build a lower than or equal expression, you meed to call the ``lowerThanOrEqu
 elements to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->lowerThanOrEqual('foo', '?');
 
@@ -140,6 +170,9 @@ Like
 To build a like expression, you meed to call the ``like`` method and then specify the two elements to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->like('foo', '%?%');
 
@@ -151,6 +184,9 @@ Not Like
 To build a not like expression, you meed to call the ``notLike`` method and then specify the two elements to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $expression = $expressionBuilder->notLike('foo', '%?%');
 
@@ -162,6 +198,9 @@ Null
 To build a null expression, you meed to call the ``isNull`` method and then specify the element to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $equal = $expressionBuilder->isNull('foo');
 
@@ -173,6 +212,9 @@ Not Null
 To build a not null expression, you meed to call the ``isNotNull`` method and then specify the element to compare.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $equal = $expressionBuilder->isNotNull('foo');
 

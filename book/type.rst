@@ -41,6 +41,9 @@ A single type can be used a lot in a schema. In order to reduce the amount of me
 To manipulate the managed types, you can use the following API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Type\Type;
 

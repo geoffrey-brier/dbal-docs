@@ -7,6 +7,9 @@ The Fridge DBAL logs all queries on the configured logger if there is an handler
 debugging your queries is as simple as pushing an handler:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Monolog\Logger,
         Monolog\Handler\FirePHPHandler;
@@ -19,6 +22,9 @@ Then, each time you call ``executeQuery`` or ``executeUpdate`` on your connectio
 handler:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = 'SELECT firstname, lastname FROM users';
     $statement = $connection->executeQuery($query);

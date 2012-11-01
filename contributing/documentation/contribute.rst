@@ -16,6 +16,7 @@ The Fridge DBAL uses `Git`_ as version control system. Your should set up your u
 a working email address:
 
 .. code-block:: bash
+    :linenos:
 
     $ git config --global user.name "Your real name"
     $ git config --global user.email email@example.com
@@ -34,12 +35,14 @@ The source documentation is hosted on `GitHub`_. To get it locally, you need to:
 * Clone locally your fork:
 
     .. code-block:: bash
+        :linenos:
 
         $ git clone git@github.com:USERNAME/dbal-docs.git
 
 * Add the upstream repository as remote:
 
     .. code-block:: bash
+        :linenos:
 
         $ git remote add upstream git://github.com/fridge-project/dbal-docs.git
 
@@ -50,6 +53,7 @@ Now you've got the documentation locally, you should execute the sphinx quick se
 & the ``make`` files:
 
 .. code-block:: bash
+    :linenos:
 
     $ sphinx-quickstart
 
@@ -60,6 +64,7 @@ Now you've got the documentation locally, you should execute the sphinx quick se
 To build the documentation, you can execute:
 
 .. code-block:: bash
+    :linenos:
 
     $ make html
 
@@ -83,6 +88,7 @@ Create a branch
 Each time you want to contribute, create a new branch:
 
 .. code-block:: bash
+    :linenos:
 
     $ git checkout -b BRANCH_NAME master
 
@@ -111,6 +117,7 @@ Rebase your work
 Before submitting your contribution, you should rebase your branch:
 
 .. code-block:: bash
+    :linenos:
 
     $ git checkout master
     $ git pull --rebase upstream/master master
@@ -121,6 +128,7 @@ When running the last command, you might have to fix conflicts. ``git status`` w
 Resolve all conflicts and then continue the rebase:
 
 .. code-block:: bash
+    :linenos:
 
     $ git add ... # add resolved files
     $ git rebase --continue
@@ -128,6 +136,7 @@ Resolve all conflicts and then continue the rebase:
 Check the documentation is well builded by Sphinx. Then, push your branch remotely:
 
 .. code-block:: bash
+    :linenos:
 
     $ git push origin BRANCH_NAME
 
@@ -139,6 +148,7 @@ You're now able to make a pull request on the `fridge-project/dbal-docs`_ reposi
 To ease the Fridge team work, always include the modified part in your pull request title:
 
 .. code-block:: text
+    :linenos:
 
     [Book][Introduction] Add something
     [Contribution][Bug] Fix something
@@ -154,6 +164,7 @@ After submitting your pull request, the team will review it. According to our fe
 Before re-submitting it, rebase with ``upstream/master`` (**don't merge**) and force the push to the origin:
 
 .. code-block:: bash
+    :linenos:
 
     $ git rebase -f upstream/master
     $ git push -f origin BRANCH_NAME

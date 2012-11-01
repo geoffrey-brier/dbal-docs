@@ -14,6 +14,7 @@ intelligent and beautiful documentation with the `reStructuredText`_ markup lang
 To install it, you need to get it from the `Python Package Index`_ or install it with:
 
 .. code-block:: bash
+    :linenos:
 
     $ easy_install -U Sphinx
 
@@ -29,6 +30,7 @@ documentation, creation of highlighted source code and more.
 To install it:
 
 .. code-block:: bash
+    :linenos:
 
     $ sudo pear config-set auto_discover 1
     $ sudo pear install pear.apigen.org/Apigen
@@ -36,6 +38,7 @@ To install it:
 To build the API documentation, you just need to run:
 
 .. code-block:: bash
+    :linenos:
 
     $ apigen --source ./ --destination api --exclude */vendor/* --exclude */tests/*
 

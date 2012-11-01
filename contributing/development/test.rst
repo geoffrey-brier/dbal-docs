@@ -10,6 +10,7 @@ PHPUnit
 To run the Fridge DBAL test suite, your need to install PHPUnit:
 
 .. code-block:: bash
+    :linenos:
 
     $ sudo pear config-set auto_discover 1
     $ sudo pear install pear.phpunit.de/PHPUnit
@@ -23,6 +24,7 @@ needs and it will install & autoload them for you.
 Composer comes with a simple phar file. To easily access it from anywhere on your system, you can execute:
 
 .. code-block:: bash
+    :linenos:
 
     $ curl -s https://getcomposer.org/installer | php
     $ sudo mv composer.phar /usr/local/bin/composer
@@ -30,6 +32,7 @@ Composer comes with a simple phar file. To easily access it from anywhere on you
 Then, just run composer:
 
 .. code-block:: bash
+    :linenos:
 
     $ composer update --dev
 
@@ -39,6 +42,7 @@ Running
 Now you have installed PHPUnit & the Fridge DBAL dependencies, you can run the test suite:
 
 .. code-block:: bash
+    :linenos:
 
     $ phpunit
 
@@ -54,6 +58,7 @@ Configure connections
 To execute the full test suite, you need to configure database connections with your own PHPUnit configuration file:
 
 .. code-block:: bash
+    :linenos:
 
     $ cp phpunit.xml.dist phpunit.xml
 
@@ -74,6 +79,7 @@ It helps answering questions such as:
 * How do you measure testing completeness?
 
 .. code-block:: bash
+    :linenos:
 
     $ phpunit --coverage-html ./report
 

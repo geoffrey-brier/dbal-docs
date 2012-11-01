@@ -24,6 +24,9 @@ A ``Schema`` represents a database schema. It provides an API to manage tables, 
 A Schema is described by a name:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Schema\Schema;
 
@@ -35,6 +38,9 @@ A Schema is described by a name:
 To manage your tables, you can use the following methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schema->hasTables();
     $schema->hasTable($name);
@@ -52,6 +58,9 @@ To manage your tables, you can use the following methods:
 To manage your views, you can use the following methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schema->hasViews();
     $schema->hasView($name);
@@ -69,6 +78,9 @@ To manage your views, you can use the following methods:
 To manage your sequences, you can use the following methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schema->hasSequences();
     $schema->hasSequence($name);
@@ -91,6 +103,9 @@ A ``Table`` represents a database table. It can manage columns, primary key, for
 Obvisouly, it wraps a name:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $table->getName();
     $table->setName($name);
@@ -98,6 +113,9 @@ Obvisouly, it wraps a name:
 To manage your columns, you can use the following methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $table->hasColumns();
     $table->hasColumn($name);
@@ -115,6 +133,9 @@ To manage your columns, you can use the following methods:
 To manage your primary key, you can use the following methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $table->hasPrimaryKey();
     $primaryKey = $table->getPrimaryKey();
@@ -125,6 +146,9 @@ To manage your primary key, you can use the following methods:
 To manage your foreign keys, you can use the following methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $table->hasForeignKeys();
     $table->hasForeignKey($name);
@@ -148,6 +172,9 @@ To manage your foreign keys, you can use the following methods:
 To manage your checks, you can use the following methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $table->hasChecks();
     $table->hasCheck($name);
@@ -171,6 +198,9 @@ etc.
 The following API allows you to manage your column:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $column->getName();
     $column->setName($name);
@@ -217,6 +247,9 @@ Primary Key
 A ``PrimaryKey`` represents a database primary key. The following API allows you to manage it:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $primaryKey->getName();
     $primaryKey->setName($name);
@@ -231,6 +264,9 @@ Foreign Key
 A ``ForeignKey`` represents a database foreign key. The following API allows you to manage it:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $foreignKey->getName();
     $foreignKey->setName($name);
@@ -254,11 +290,16 @@ The Fridge foreign key supports on delete & on update referential actions. The f
 ones.
 
 .. code-block:: php
+    :linenos:
 
-    \Fridge\DBAL\Schema\ForeignKey::CASCADE;
-    \Fridge\DBAL\Schema\ForeignKey::NO_ACTION;
-    \Fridge\DBAL\Schema\ForeignKey::RESTRICT;
-    \Fridge\DBAL\Schema\ForeignKey::SET_NULL;
+    <?php
+
+    use Fridge\DBAL\Schema\ForeignKey;
+
+    ForeignKey::CASCADE;
+    ForeignKey::NO_ACTION;
+    ForeignKey::RESTRICT;
+    ForeignKey::SET_NULL;
 
 Index
 ~~~~~
@@ -266,6 +307,9 @@ Index
 An ``Index`` represents a database index. The following API allows you to manage it:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $index->getName();
     $index->setName($name);
@@ -282,6 +326,9 @@ Check
 A ``Check`` represents a database check constraint. The following API allows you to manage it:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $check->getName();
     $check->setName($name);
@@ -295,6 +342,9 @@ Sequence
 A ``Sequence`` represents a database sequence. The following API allows you to manage it:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $sequence->getName();
     $sequence->setName($name);
@@ -311,6 +361,9 @@ View
 A ``View`` represents a database sequence. The following API allows you to manage it:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $name = $view->getName();
     $view->setName($name);
@@ -325,6 +378,9 @@ To manipulate your database schema, you will need a ``SchemaManager``. To get it
 method on your connection.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager = $connection->getSchemaManager();
 
@@ -334,18 +390,27 @@ Schema
 To fetch your entire schema, you can use the ``getSchema`` on your schema manager.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schema = $schemaManager->getSchema();
 
 If you want to fetch a different schema of the one define in your connection, you can specify the name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schema = $schemaManager->getSchema($schemaName);
 
 The other schema manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createSchema($schema);
     $schemaManager->dropSchema($schema);
@@ -357,6 +422,9 @@ Table
 The schema manager can either fetch tables names, tables or a specific table.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $tableNames = $schemaManager->getTableNames();
     $tables = $schemaManager->getTables();
@@ -366,6 +434,9 @@ If you want to fetch tables from a different schema of the one define in your co
 name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $tableNames = $schemaManager->getTableNames($schemaName);
     $tables = $schemaManager->getTables($schemaName);
@@ -374,6 +445,9 @@ name as argument.
 The other table manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createTables($tables);
     $schemaManager->createTable($table);
@@ -390,6 +464,9 @@ Column
 The schema manager allows you to fetch columns of a specific table.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $columns = $schemaManager->getTableColumns($tableName);
 
@@ -397,12 +474,18 @@ If you want to fetch table columns from a different schema of the one define in 
 schema name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $columns = $schemaManager->getTableColumns($tableName, $schemaName);
 
 The other manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createColumn($column, $tableName);
     $schemaManager->dropColumn($column, $tableName);
@@ -414,6 +497,9 @@ Primary Key
 The schema manager can fetch the primary key of a specific table.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $primaryKey = $schemaManager->getTablePrimaryKey($tableName);
 
@@ -421,12 +507,18 @@ If you want to fetch a table primary key from a different schema of the one defi
 the schema name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $primaryKey = $schemaManager->getTablePrimaryKey($tableName, $schemaName);
 
 The other manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createPrimaryKey($primaryKey, $tableName);
     $schemaManager->dropPrimaryKey($primaryKey, $tableName);
@@ -438,6 +530,9 @@ Foreign Key
 The schema manager allows you to fetch the foreign keys of a specific table.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $foreignKeys = $schemaManager->getTableForeignKeys($tableName);
 
@@ -445,12 +540,18 @@ If you want to fetch table foreign keys from a different schema of the one defin
 the schema name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $foreignKeys = $schemaManager->getTableForeignKeys($tableName, $schemaName);
 
 The other manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createForeignKey($foreignKey, $tableName);
     $schemaManager->dropForeignKey($foreignKey, $tableName);
@@ -462,6 +563,9 @@ Index
 The schema manager can fetch the indexes of a specific table.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $indexes = $schemaManager->getTableIndexes($tableName);
 
@@ -469,12 +573,18 @@ If you want to fetch table indexes from a different schema of the one define in 
 schema name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $indexes = $schemaManager->getTableIndexes($tableName, $schemaName);
 
 The other manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createIndex($index, $tableName);
     $schemaManager->dropIndex($index, $tableName);
@@ -486,6 +596,9 @@ Check
 The schema manager allows you to fetch the check constraints of a specific table.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $checks = $schemaManager->getTableChecks($tableName);
 
@@ -493,12 +606,18 @@ If you want to fetch table check constraints from a different schema of the one 
 specify the schema name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $checks = $schemaManager->getTableChecks($tableName, $schemaName);
 
 The other manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createCheck($check, $tableName);
     $schemaManager->dropCheck($check, $tableName);
@@ -511,6 +630,9 @@ Like explain in the representation section, the ``PrimaryKey``, ``ForeignKey``, 
 ``ConstraintInterface``. The schema manager allows you to manipulate all these classes like a ``Constraint``.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createConstraint($constraint, $tableName);
     $schemaManager->dropConstraint($constraint, $tableName);
@@ -522,6 +644,9 @@ Sequence
 The schema manager can fetch schema sequences.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $sequences = $schemaManager->getSequences();
 
@@ -529,12 +654,18 @@ If you want to fetch schema sequences from a different schema of the one define 
 the schema name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $sequences = $schemaManager->getSequences($schemaName);
 
 The other manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createSequence($sequence);
     $schemaManager->dropSequence($sequence);
@@ -546,6 +677,9 @@ View
 The schema manager allows you to fetch schema views.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $views = $schemaManager->getViews();
 
@@ -553,12 +687,18 @@ If you want to fetch schema views from a different schema of the one define in y
 schema name as argument.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $views = $schemaManager->getViews($schemaName);
 
 The other manipulations are available through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schemaManager->createView($view);
     $schemaManager->dropView($view);
@@ -577,6 +717,9 @@ the appropriate SQL collector.
 In order to deal with this process, all schema classes are clonable.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $schema = $schemaManager->getSchema();
     $newSchema = clone $schema;
@@ -587,6 +730,9 @@ Schema Comparison
 To compare two schemas, you need the ``Fridge\DBAL\Schema\Comparator\SchemaComparator``.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Schema\Comparator\SchemaComparator;
 
@@ -603,6 +749,9 @@ To compare two schemas, you need the ``Fridge\DBAL\Schema\Comparator\SchemaCompa
 To collect SQL queries, you need to use the ``Fridge\DBAL\SchemaManager\SQLCollector\AlterSchemaSQLCollector``.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\SchemaManager\SQLCollector\AlterSchemaSQLCollector;
 
@@ -617,6 +766,9 @@ Table Comparison
 To compare two tables, you need the ``Fridge\DBAL\Schema\Comparator\TableComparator``.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Schema\Comparator\TableComparator;
 
@@ -633,8 +785,11 @@ To compare two tables, you need the ``Fridge\DBAL\Schema\Comparator\TableCompara
 To collect SQL queries, you need to use the ``Fridge\DBAL\SchemaManager\SQLCollector\AlterTableSQLCollector``.
 
 .. code-block:: php
+    :linenos:
 
     use Fridge\DBAL\SchemaManager\SQLCollector\AlterSchemaSQLCollector;
+
+    <?php
 
     $sqlCollector = new AlterSchemaSQLCollector($platform);
     $sqlCollector->collect($schemaDiff);
@@ -647,6 +802,9 @@ Column Comparison
 To compare two columns, you need the ``Fridge\DBAL\Schema\Comparator\ColumnComparator``.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Schema\Comparator\ColumnComparator;
 
@@ -664,5 +822,8 @@ To collect SQL queries, you don't need an SQL collector. You just need to get th
 platform.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queries = $connection->getPlatform()->getAlterColumnSQLQueries($columnDiff, $tableName);

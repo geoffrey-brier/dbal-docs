@@ -7,6 +7,9 @@ statement by allowing developers to use a `fluent interface`_ to specify individ
 To get a ``Fridge\DBAL\Query\QueryBuilder``, you need to call the ``createQueryBuilder`` method on your connection.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder = $connection->createQueryBuilder();
 
@@ -24,18 +27,27 @@ The select method specifies the ``SELECT`` part of a query. It accepts a unique 
 to be selected, which can be either a string representing comma-separated columns, or an array of column names.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->select();
 
     /* SELECT * */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->select('firstname, lastname');
 
     /* SELECT firstname, lastname */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->select(array('firstname', 'lastname'));
 
@@ -48,6 +60,9 @@ The from method specifies the ``FROM`` part of a query. It takes as first parame
 It accepts as second parameter the table alias.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -56,6 +71,9 @@ It accepts as second parameter the table alias.
     /* SELECT * FROM user */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select('u.lastname')
@@ -70,6 +88,9 @@ The join method specifies the ``JOIN`` part of a query. It takes five parameters
 alias, the join type, the join table name, the join table alias & the join condition.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -87,6 +108,9 @@ The inner join method takes four parameters which describes respectively the fro
 table alias & the join condition.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -102,6 +126,9 @@ The left join method takes four parameters which describes respectively the from
 table alias & the join condition.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -117,6 +144,9 @@ The right join method takes four parameters which describes respectively the fro
 table alias & the join condition.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -133,6 +163,9 @@ a string representing the expression or an array of simple expression. It accept
 type (AND, OR).
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -142,6 +175,9 @@ type (AND, OR).
     /* SELECT * FROM user WHERE id = ? */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -161,6 +197,9 @@ And
 The andWhere method appends an ``AND`` expression to the ``WHERE`` part of a query.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -176,6 +215,9 @@ Or
 The orWhere method appends an ``OR`` expression to the ``WHERE`` part of a query.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -192,6 +234,9 @@ The groupBy method specifies the ``GROUP BY`` part of a query. It takes a first 
 to be grouped by, which can be either a string representing comma-separated columns, or an array of columns.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select(array('u.id', 'COUNT(p.id) AS picture_count'))
@@ -207,6 +252,9 @@ to be grouped by, which can be either a string representing comma-separated colu
     */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select(array(
@@ -235,6 +283,9 @@ either a string representing the expression or an array of simple expression. It
 expression type (AND, OR).
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select(array('u.id', 'COUNT(p.id) AS picture_count'))
@@ -252,6 +303,9 @@ expression type (AND, OR).
     */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select(array(
@@ -285,6 +339,9 @@ And
 The andHaving method appends an ``AND`` expression to the ``HAVING`` part of a query.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select(array(
@@ -314,6 +371,9 @@ Or
 The orHaving method appends an ``AND`` expression to the ``HAVING`` part of a query.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select(array(
@@ -345,6 +405,9 @@ be ordered by, which can be either a string representing comma-separated columns
 an array of columns and order directions.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -354,6 +417,9 @@ an array of columns and order directions.
     /* SELECT * FROM user ORDER BY lastname ASC */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -368,6 +434,9 @@ Offset
 The offset method specifies the ``OFFSET`` part of a query.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -382,6 +451,9 @@ Limit
 The limit method specifies the ``LIMIT`` part of a query.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->select()
@@ -400,6 +472,9 @@ The set method allow to specify each column value to insert. It is strongly reco
 method which will automatically generated a placeholder & bind your parameter on it.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->insert('user')
@@ -418,6 +493,9 @@ The set method allow to specify each column value to update. It is strongly reco
 method which will automatically generated a placeholder & bind your parameter on it.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->update('user')
@@ -432,6 +510,9 @@ The delete method allows to build a ``DELETE`` SQL statement which takes as firs
 deleted & as second parameter the table alias.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->delete('user');
 
@@ -444,6 +525,9 @@ To avoid :doc:`security issues<security>`, the query builder supports prepared s
 placeholders. Like for a prepared statement, it is not possible to mix them together.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->setParameter(1, $firstname, \PDO::PARAM_STR)
@@ -451,6 +535,9 @@ placeholders. Like for a prepared statement, it is not possible to mix them toge
         ->setParameter(3, $enabled);
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder
         ->setParameter('firstname', $firstname, \PDO::PARAM_STR)
@@ -458,6 +545,9 @@ placeholders. Like for a prepared statement, it is not possible to mix them toge
         ->setParameter('enabled', $enabled);
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->setParameters(
         array($firstname, $lastname, $enabled),
@@ -467,7 +557,11 @@ placeholders. Like for a prepared statement, it is not possible to mix them toge
     // OR
 
     $queryBuilder->setParameters(
-        array('firstname' => $firstname, 'lastname'  => $lastname, 'enabled' => $enabled),
+        array(
+            'firstname' => $firstname,
+            'lastname'  => $lastname,
+            'enabled'   => $enabled,
+        ),
         array('firstname' => \PDO::PARAM_STR, 'lastname' => 'string')
     );
 
@@ -479,18 +573,27 @@ either generate a positional or a named placeholder or even better let the query
 Each methods can take as second parameter any ``PDO::PARAM_*`` type or any :doc:`Fridge DBAL type<type>`.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $placeholder = $queryBuilder->createPositionalPlaceholder($value);
 
     /* $placeholder = '?' */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $placeholder = $queryBuilder->createNamedPlaceholder($value);
 
     /* $placeholder = ':fridge1' */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $placeholder = $queryBuilder->createPlaceholder($value);
 
@@ -504,6 +607,9 @@ Get Query
 To get your query, you need to call the ``getQuery`` method.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $queryBuilder->getQuery();
 
@@ -513,6 +619,9 @@ Execute Query
 To execute your query, you just need to call the ``execute`` method.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $statement = $queryBuilder->execute();
 
@@ -535,6 +644,9 @@ The query builder is composed of parts:
 If you want to reset a single part, you can call the ``resetPart`` function and specify the part you want to reset.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->resetPart('select');
 
@@ -542,12 +654,18 @@ If you want to reset multiple specific parts, you can call the ``resetParts`` fu
 reset.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->resetParts(array('offset', 'limit'));
 
 if you want to reset all parts, you can simply call the ``resetParts`` function.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queryBuilder->resetParts();
 

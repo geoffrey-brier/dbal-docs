@@ -10,6 +10,9 @@ To get a Fridge Connection, you need the ``Fridge\DBAL\Factory``. It gives you a
 which will allow you to do what you want with your database.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Factory;
 
@@ -38,6 +41,9 @@ versions 4.1.3 or later it is **strongly** recommended that you use this extensi
 The available parameters are:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $parameters = array(
         'driver'      => 'mysqli',
@@ -59,6 +65,9 @@ databases.
 The available parameters are:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $parameters = array(
         'driver'         => 'pdo_mysql',
@@ -81,6 +90,9 @@ databases.
 The available parameters are:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $parameters = array(
         'driver'         => 'pdo_pgsql',
@@ -99,6 +111,9 @@ The Factory accepts a second parameter which is a ``Fridge\DBAL\Configuration``.
 internal `Logger`_ (Monolog) & `Event Dispatcher`_ (Symfony2).
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL;
 
@@ -118,6 +133,9 @@ Driver
 A custom driver implementation can allow to define your own adapter, platform or schema manager implementation.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Factory;
 
@@ -142,6 +160,9 @@ Connection
 A custom connection implementation will allow you to override all other features not covered by a custom driver.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Factory;
 
@@ -168,6 +189,9 @@ Simple Statement
 The query method is the most simple one for fetching data. It executes the SQL and returns a statement.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $statement = $connection->query('SELECT firstname, lastname FROM user');
 
@@ -207,8 +231,13 @@ A positional placeholder is defined by a question mark (?). This approach is cal
 bound in order from left to right beginning by one to any question mark found in the SQL query.
 
 .. code-block:: php
+    :linenos:
 
-    $query = 'SELECT firstname, lastname FROM user WHERE civility = ? AND enabled = ?';
+    <?php
+
+    $query = 'SELECT firstname, lastname '.
+             'FROM user '.
+             'WHERE civility = ? AND enabled = ?';
 
     $statement = $connection->prepare($query);
     $statement->bindValue(1, 'm');
@@ -222,8 +251,13 @@ A named placeholder is defined by a simple string starting with a double-colon (
 advantage that placeholders can be re-used and only need to be bound once.
 
 .. code-block:: php
+    :linenos:
 
-    $query = 'SELECT firstname, lastname FROM user WHERE civility = :civility AND enabled = :enabled';
+    <?php
+
+    $query = 'SELECT firstname, lastname '.
+             'FROM user '.
+              'WHERE civility = :civility AND enabled = :enabled';
 
     $statement = $connection->prepare($query);
     $statement->bindValue('civility', 'm');
@@ -237,8 +271,13 @@ When you bind a value on your prepared statement, you can specify a third argume
 can use ``PDO::PARAM_*`` types and/or any :doc:`Fridge DBAL types<type>`.
 
 .. code-block:: php
+    :linenos:
 
-    $query = 'SELECT firstname, lastname FROM user WHERE enabled = ? and created_at > ?';
+    <?php
+
+    $query = 'SELECT firstname, lastname '.
+             'FROM user '.
+             'WHERE enabled = ? and created_at > ?';
 
     $statement = $connection->prepare($query);
     $statement->bindValue(1, true, \PDO::PARAM_BOOL);
@@ -257,6 +296,9 @@ Fetch All
 The fetch all method retrieves all rows from the statement.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetchAll(\PDO::FETCH_NUM);
 
@@ -268,6 +310,9 @@ The fetch all method retrieves all rows from the statement.
     */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
@@ -279,6 +324,9 @@ The fetch all method retrieves all rows from the statement.
     */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetchAll(\PDO::FETCH_BOTH);
 
@@ -306,6 +354,9 @@ The fetch method retrieves the next row from the statement or false if there are
 row, so that consecutive calls will always return the next row.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetch(\PDO::FETCH_NUM);
 
@@ -317,6 +368,9 @@ row, so that consecutive calls will always return the next row.
     */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetch(\PDO::FETCH_ASSOC);
 
@@ -328,6 +382,9 @@ row, so that consecutive calls will always return the next row.
     */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetch(\PDO::FETCH_ASSOC);
 
@@ -347,12 +404,18 @@ The fetch column retrieves only one column of the next row specified by column i
 row, so that consecutive calls will always return the next row.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetchColumn(0);
 
     /* $result = 'Éric'; */
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $result = $statement->fetchColumn(1);
 
@@ -371,8 +434,13 @@ Simple Statement
 If you want to get a simple statement, you just need to execute your query.
 
 .. code-block:: php
+    :linenos:
 
-    $statement = $connection->executeQuery('SELECT firstname, lastname FROM user');
+    <?php
+
+    $query = ''SELECT firstname, lastname FROM user'';
+
+    $statement = $connection->executeQuery($query);
 
 Prepared Statement
 ~~~~~~~~~~~~~~~~~~
@@ -380,6 +448,9 @@ Prepared Statement
 To build & execute a prepared statement, you need to specify all binded values to the method.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $statement = $connection->executeQuery(
         'SELECT firstname, lastname FROM user WHERE id = ?',
@@ -399,6 +470,9 @@ Type Support
 The Fridge API supports ``PDO::PARAM_*`` types and any :doc:`Fridge DBAL types<type>`.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $statement = $connection->executeQuery(
         'SELECT firstname, lastname FROM user WHERE created_at > ?',
@@ -425,6 +499,9 @@ Query Rewriting (IN)
 Using a prepared statement & the ``IN`` SQL clause is really a pain... Take this simple query:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = 'SELECT firstname, lastname FROM user WHERE id IN (?, ?, ?, ?)';
 
@@ -442,6 +519,9 @@ placeholder and then simply bind your values on it. To enable this feature, you 
 :doc:`Fridge DBAL types<type>`.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $statement = $connection->executeQuery(
         'SELECT firstname, lastname FROM user WHERE id IN (?)',
@@ -473,6 +553,9 @@ Fetch All
 The fetch all method retrieves all rows using the ``PDO::FETCH_ASSOC`` strategy.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = 'SELECT firstname, lastname FROM user WHERE id = ?';
 
@@ -491,6 +574,9 @@ Fetch Assoc
 The fetch assoc method retrieves the first row using the ``PDO::FETCH_ASSOC`` strategy.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = 'SELECT firstname, lastname FROM user WHERE id = ?';
 
@@ -509,6 +595,9 @@ Fetch Array
 The fetch assoc method retrieves the first row using the ``PDO::FETCH_NUM`` strategy.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = 'SELECT firstname, lastname FROM user WHERE id = ?';
 
@@ -527,6 +616,9 @@ Fetch Column
 The fetch column retrieves only one column of the first row specified by column index.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = 'SELECT firstname, lastname FROM user WHERE id = ?';
 
@@ -546,6 +638,9 @@ Simple Statement
 The exec method is the most simple one for manipulate data. It executes the SQL and returns the number of affected rows.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $affectedRows = $connection->exec('DELETE FROM user');
 
@@ -553,6 +648,9 @@ Prepared Statement
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = 'UPDATE user SET firstname = ?, lastname = ? WHE';
 
@@ -579,6 +677,9 @@ Execute Update
 ~~~~~~~~~~~~~~
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $affectedRows = $connection->executeUpdate(
         'UPDATE user SET firstname = ?, lastname = ? WHERE id = ?',
@@ -599,6 +700,9 @@ associative array describing column <-> value pair and in third parameter, an op
 to typehint your value.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $affectedRows = $connection->insert(
         'user',
@@ -614,6 +718,9 @@ associative array describing column <-> value pair and in third parameter, an op
 to typehint your value.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $affectedRows = $connection->update(
         'user',
@@ -625,6 +732,9 @@ If you want to filter your update, you can make an advanced update with the four
 represent respectively the expression, the expression parameters & the expression parameters types.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $affectedRows = $connection->update(
         'user',
@@ -641,6 +751,9 @@ Delete
 The delete method allows you to delete datas easily. It takes in first parameter the table name.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $affectedRows = $connection->delete('user');
 
@@ -649,6 +762,9 @@ If you want to filter your deletion, you can make an advanced deletion with the 
 represent respectively the expression, the expression parameters & the expression parameters types.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $affectedRows = $connection->delete(
         'user',
@@ -669,6 +785,9 @@ Simple transaction
 A transaction looks as follows:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $connection->beginTransaction();
 
@@ -690,6 +809,9 @@ Nested transactions
 The Fridge DBAL supports nested transaction by using **savepoint**. A nested transaction looks as follows:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $connection->beginTransaction();
 
@@ -720,6 +842,9 @@ The Fridge DBAL has methods to control the transaction isolation level as suppor
 supported isolation levels are represented by the following constants:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     use Fridge\DBAL\Connection\Connection;
 
@@ -731,10 +856,16 @@ supported isolation levels are represented by the following constants:
 You can easily manipulate it with the following API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $connection->setTransactionIsolation($transactionIsolation);
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $transactionIsolation = $connection->getTransactionIsolation();
 

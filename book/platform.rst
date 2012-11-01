@@ -4,6 +4,9 @@ Platform
 A Platform abstracts query generation and normalizes the differences of each database vendors.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $platform = $connection->getPlatform();
 
@@ -13,6 +16,9 @@ Supported Features
 A Platform can not support all features. To know the supported ones, the following API is available.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $platform->supportSequence();
     $platform->supportView();
@@ -37,6 +43,9 @@ The ``Select`` query generation is mainly use in the schema manager when you fet
 If you want to get the current database or the available databases, you can use these methods:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectDatabaseSQLQuery();
     $query = $platform->getSelectDatabasesSQLQuery();
@@ -44,48 +53,72 @@ If you want to get the current database or the available databases, you can use 
 To get the available sequences, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectSequencesSQLQuery($database);
 
 To get the available views, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectViewsSQLQuery($database);
 
 To get the available table names, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectTableNamesSQLQuery($database);
 
 To get the available table columns, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectTableColumnsSQLQuery($table, $database);
 
 To get the available table primary key, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectTablePrimaryKeySQLQuery($table, $database);
 
 To get the available table foreign keys, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectTableForeignKeysSQLQuery($table, $database);
 
 To get the available table indexes, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectTableIndexesSQLQuery($table, $database);
 
 To get the available table checks, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSelectTableChecksSQLQuery($table, $database);
 
@@ -97,18 +130,27 @@ The ``Create`` query generation is use in the schema manager too when you create
 To create a database, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateDatabaseSQLQuery($database);
 
 To create a sequence, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateSequenceSQLQuery($sequence);
 
 To create a view, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateViewSQLQuery($view);
 
@@ -121,42 +163,63 @@ constraints creation. The available flags are:
 * ``check``: TRUE if queries include checks else FALSE (default: TRUE).
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queries = $platform->getCreateTableSQLQueries($table, $flags);
 
 To create a column, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queries = $platform->getCreateColumnSQLQueries($column, $table);
 
 To create a primary key, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreatePrimaryKeySQLQuery($primaryKey, $table);
 
 To create a foreign key, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateForeignKeySQLQuery($foreignKey, $table);
 
 To create an index, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateIndexSQLQuery($index, $table);
 
 To create a check, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateCheckSQLQuery($check, $table);
 
 To create a constraint, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateConstraintSQLQuery($constraint, $table);
 
@@ -168,60 +231,90 @@ The ``Drop`` query generation is use in the schema manager too when you drop dat
 To drop a database, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropDatabaseSQLQuery($database);
 
 To drop a sequence, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropSequenceSQLQuery($sequence);
 
 To drop a view, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropViewSQLQuery($view);
 
 To drop a table, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropTableSQLQuery($table);
 
 To drop a column, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropColumnSQLQuery($column, $table);
 
 To drop a primary key, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropPrimaryKeySQLQuery($primaryKey, $table);
 
 To drop a foreign key, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropForeignKeySQLQuery($foreignKey, $table);
 
 To drop an index, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropIndexSQLQuery($index, $table);
 
 To drop a check, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropCheckSQLQuery($check, $table);
 
 To drop a constraint, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getDropConstraintSQLQuery($constraint, $table);
 
@@ -233,18 +326,27 @@ The ``Alter / Rename`` query generation is use in the schema manager too when yo
 To rename a database, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queries = $platform->getRenameDatabaseSQLQueries($schemaDiff);
 
 To rename a table, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getRenameTableSQLQuery($tableDiff);
 
 To alter a column, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $queries = $platform->getAlterColumnSQLQueries($columnDiff, $table);
 
@@ -255,6 +357,9 @@ The ``Savepoint`` is used by the connection when you process a nested transactio
 all possible queries:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getCreateSavepointSQLQuery($savepointName);
     $query = $platform->getReleaseSavepointSQLQuery($savepointName);
@@ -266,6 +371,9 @@ Transaction Isolation
 The following method allows you to manage the transaction isolation of your queries.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSetTransactionIsolationSQLQuery($isolationLevel);
 
@@ -275,6 +383,9 @@ Charset
 The ``Charset`` allows you to set the charset of your connection.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $query = $platform->getSetCharsetSQLQuery($charset);
 
@@ -287,18 +398,27 @@ database vendors.
 If you want to quote a single identifier, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $identifier = $platform->quotedIdentifer($identifier);
 
 If you want to quote multiple identifiers, you can use this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $identifiers = $platform->quoteIdentifiers($identifiers);
 
 The quote identifier can be retrieve through this method:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $quote = $platform->getQuoteIdentifier();
 
@@ -312,6 +432,9 @@ Like it is explain in the :doc:`Fridge Types <type>` documentation, a type is re
 declaration. The following methods allow you to easily generate all of them:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $bigInteger = $platform->getBigIntegerSQLDeclaration($options);
     $boolean = $platform->getBooleanSQLDeclaration($options);
@@ -332,6 +455,9 @@ The platform defines an explicit mapping between database & fridge types. It is 
 database reverse ingenering.
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $platform->hasMappedType($databaseType);
     $fridgeType = $platform->getMappedType($databaseType);
@@ -344,6 +470,9 @@ is throw. You can change this behavior by calling the ``setStrictMappedType`` on
 does not exist, the platform will fallback on the configured one (by default: text).
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $strict = $platform->useStrictMappedType($strict);
 
@@ -363,6 +492,9 @@ stores this information in the table column comment following a specific pattern
 The mandatory types can be manipulates through this API:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $platform->hasMandatoryType($type);
     $platform->addMandatoryType($type);
@@ -376,6 +508,9 @@ A platform defines some database contants like default decimal precision, max va
 The following API allows you to deal with default database constants:
 
 .. code-block:: php
+    :linenos:
+
+    <?php
 
     $defaultPrecision = $platform->getDefaultDecimalPrecision();
     $defaultScale = $platform->getDefaultDecimalScale();

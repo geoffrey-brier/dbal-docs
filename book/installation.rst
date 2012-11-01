@@ -10,6 +10,7 @@ Set up Composer
 Composer comes with a simple phar file. To easily access it from anywhere on your system, you can execute:
 
 .. code-block:: bash
+    :linenos:
 
     $ curl -s https://getcomposer.org/installer | php
     $ sudo mv composer.phar /usr/local/bin/composer
@@ -20,6 +21,7 @@ Define dependencies
 Create a ``composer.json`` file at the root directory of your project and simply require the ``fridge/dbal`` package:
 
 .. code-block:: yaml
+    :linenos:
 
     {
         "require": {
@@ -33,6 +35,7 @@ Install dependencies
 Now, you have define your dependencies, you can install them:
 
 .. code-block:: bash
+    :linenos:
 
     $ composer install
 
@@ -46,6 +49,7 @@ Autoload
 So easy, you just have to require the generated autoload file and you are already ready to play:
 
 .. code-block:: php
+    :linenos:
 
     <?php
 
