@@ -31,3 +31,9 @@ handler:
 
     $query = 'UPDATE users SET enabled = ? WHERE id = ?';
     $affetctedRows = $connection->executeUpdate($query, array(false, 1));
+
+.. note::
+
+    If you want to learn more about the available logger handlers, check the `Monolog documentation`_.
+
+.. _Monolog documentation: https://github.com/Seldaek/monolog#handlers
