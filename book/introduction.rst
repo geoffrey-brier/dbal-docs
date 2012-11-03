@@ -47,5 +47,5 @@ An much more...
 
 .. _Wid'op:              http://www.widop.com
 .. _database extensions: http://php.net/manual/en/refs.database.php
-.. _PDO-like API:        /dbal/api/namespace-Fridge.DBAL.Adapter.html
+.. _PDO-like API:        http://fridge-project.org/dbal/api/namespace-Fridge.DBAL.Adapter.html
 .. _PDO:                 http://php.net/manual/en/book.pdo.php
