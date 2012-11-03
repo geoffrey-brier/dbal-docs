@@ -1,4 +1,4 @@
-Debug your queries
+Debug your Queries
 ==================
 
 Being able to easily interact with your database is good but having the ability to debug your queries is better.
