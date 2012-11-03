@@ -1,5 +1,5 @@
-DBAL
-====
+DBAL Documentation
+==================
 
 .. toctree::
     :maxdepth: 1
