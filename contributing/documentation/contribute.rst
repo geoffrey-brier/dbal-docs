@@ -1,5 +1,5 @@
-Contribute to the documentation
-===============================
+Contribute
+==========
 
 If you want to contribute, you're really welcome!
 
