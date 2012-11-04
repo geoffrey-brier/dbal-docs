@@ -826,4 +826,7 @@ platform.
 
     <?php
 
-    $queries = $connection->getPlatform()->getAlterColumnSQLQueries($columnDiff, $tableName);
+    $queries = $connection->getPlatform()->getAlterColumnSQLQueries(
+        $columnDiff,
+        $tableName
+    );
