@@ -2,9 +2,7 @@ Contributing
 ============
 
 .. toctree::
-    :hidden:
+    :maxdepth: 2
 
     development/index
     documentation/index
-
-.. include:: /contributing/contributing.rst.inc
