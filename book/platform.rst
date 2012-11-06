@@ -135,7 +135,7 @@ To create a database, you can use this method:
 
     <?php
 
-    $query = $platform->getCreateDatabaseSQLQuery($database);
+    $queries = $platform->getCreateDatabaseSQLQueries($database);
 
 To create a sequence, you can use this method:
 
@@ -144,7 +144,7 @@ To create a sequence, you can use this method:
 
     <?php
 
-    $query = $platform->getCreateSequenceSQLQuery($sequence);
+    $queries = $platform->getCreateSequenceSQLQueries($sequence);
 
 To create a view, you can use this method:
 
@@ -153,7 +153,7 @@ To create a view, you can use this method:
 
     <?php
 
-    $query = $platform->getCreateViewSQLQuery($view);
+    $queries = $platform->getCreateViewSQLQueries($view);
 
 To create a table, you can use this method which accepts as second argument an array of flags. They allows to filter
 constraints creation. The available flags are:
@@ -186,7 +186,7 @@ To create a primary key, you can use this method:
 
     <?php
 
-    $query = $platform->getCreatePrimaryKeySQLQuery($primaryKey, $table);
+    $queries = $platform->getCreatePrimaryKeySQLQueries($primaryKey, $table);
 
 To create a foreign key, you can use this method:
 
@@ -195,7 +195,7 @@ To create a foreign key, you can use this method:
 
     <?php
 
-    $query = $platform->getCreateForeignKeySQLQuery($foreignKey, $table);
+    $queries = $platform->getCreateForeignKeySQLQueries($foreignKey, $table);
 
 To create an index, you can use this method:
 
@@ -204,7 +204,7 @@ To create an index, you can use this method:
 
     <?php
 
-    $query = $platform->getCreateIndexSQLQuery($index, $table);
+    $queries = $platform->getCreateIndexSQLQueries($index, $table);
 
 To create a check, you can use this method:
 
@@ -213,7 +213,7 @@ To create a check, you can use this method:
 
     <?php
 
-    $query = $platform->getCreateCheckSQLQuery($check, $table);
+    $queries = $platform->getCreateCheckSQLQueries($check, $table);
 
 To create a constraint, you can use this method:
 
@@ -222,7 +222,7 @@ To create a constraint, you can use this method:
 
     <?php
 
-    $query = $platform->getCreateConstraintSQLQuery($constraint, $table);
+    $queries = $platform->getCreateConstraintSQLQueries($constraint, $table);
 
 Drop
 ^^^^
@@ -236,7 +236,7 @@ To drop a database, you can use this method:
 
     <?php
 
-    $query = $platform->getDropDatabaseSQLQuery($database);
+    $queries = $platform->getDropDatabaseSQLQueries($database);
 
 To drop a sequence, you can use this method:
 
@@ -245,7 +245,7 @@ To drop a sequence, you can use this method:
 
     <?php
 
-    $query = $platform->getDropSequenceSQLQuery($sequence);
+    $queries = $platform->getDropSequenceSQLQueries($sequence);
 
 To drop a view, you can use this method:
 
@@ -254,7 +254,7 @@ To drop a view, you can use this method:
 
     <?php
 
-    $query = $platform->getDropViewSQLQuery($view);
+    $queries = $platform->getDropViewSQLQueries($view);
 
 To drop a table, you can use this method:
 
@@ -263,7 +263,7 @@ To drop a table, you can use this method:
 
     <?php
 
-    $query = $platform->getDropTableSQLQuery($table);
+    $queries = $platform->getDropTableSQLQueries($table);
 
 To drop a column, you can use this method:
 
@@ -272,7 +272,7 @@ To drop a column, you can use this method:
 
     <?php
 
-    $query = $platform->getDropColumnSQLQuery($column, $table);
+    $queries = $platform->getDropColumnSQLQueries($column, $table);
 
 To drop a primary key, you can use this method:
 
@@ -281,7 +281,7 @@ To drop a primary key, you can use this method:
 
     <?php
 
-    $query = $platform->getDropPrimaryKeySQLQuery($primaryKey, $table);
+    $queries = $platform->getDropPrimaryKeySQLQueries($primaryKey, $table);
 
 To drop a foreign key, you can use this method:
 
@@ -290,7 +290,7 @@ To drop a foreign key, you can use this method:
 
     <?php
 
-    $query = $platform->getDropForeignKeySQLQuery($foreignKey, $table);
+    $queries = $platform->getDropForeignKeySQLQueries($foreignKey, $table);
 
 To drop an index, you can use this method:
 
@@ -299,7 +299,7 @@ To drop an index, you can use this method:
 
     <?php
 
-    $query = $platform->getDropIndexSQLQuery($index, $table);
+    $queries = $platform->getDropIndexSQLQueries($index, $table);
 
 To drop a check, you can use this method:
 
@@ -308,7 +308,7 @@ To drop a check, you can use this method:
 
     <?php
 
-    $query = $platform->getDropCheckSQLQuery($check, $table);
+    $queries = $platform->getDropCheckSQLQueries($check, $table);
 
 To drop a constraint, you can use this method:
 
@@ -317,7 +317,7 @@ To drop a constraint, you can use this method:
 
     <?php
 
-    $query = $platform->getDropConstraintSQLQuery($constraint, $table);
+    $queries = $platform->getDropConstraintSQLQueries($constraint, $table);
 
 Alter / Rename
 ^^^^^^^^^^^^^^
@@ -340,7 +340,7 @@ To rename a table, you can use this method:
 
     <?php
 
-    $query = $platform->getRenameTableSQLQuery($tableDiff);
+    $queries = $platform->getRenameTableSQLQueries($tableDiff);
 
 To alter a column, you can use this method:
 
