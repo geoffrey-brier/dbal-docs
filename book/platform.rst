@@ -27,6 +27,7 @@ A Platform can not support all features. To know the supported ones, the followi
     $platform->supportIndex();
     $platform->supportCheck();
     $platform->supportSavepoint();
+    $platform->supportAutoIncrement();
     $platform->supportInlineTableColumnComment();
 
 Query Generation
