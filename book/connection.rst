@@ -6,15 +6,15 @@ The Connection is the central point in the library. It simply gives you access t
 Get a Connection
 ----------------
 
-To get a Fridge Connection, you need the ``Fridge\DBAL\Factory``. It gives you a ``Fridge\DBAL\Connection\Connection``
-which will allow you to do what you want with your database.
+To get a Fridge Connection, you need the ``Fridge\DBAL\ConnectionFactory``. It gives you a
+``Fridge\DBAL\Connection\Connection`` which will allow you to do what you want with your database.
 
 .. code-block:: php
     :linenos:
 
     <?php
 
-    use Fridge\DBAL\Factory;
+    use Fridge\DBAL\ConnectionFactory;
 
     $parameters = array(
         'driver'   => 'pdo_mysql',
@@ -23,7 +23,7 @@ which will allow you to do what you want with your database.
         'dbanme'   => 'dbname',
     );
 
-    $connection = Factory::getConnection($parameters);
+    $connection = ConnectionFactory::create($parameters);
 
 The factory needs an array of parameters with a unique mandatory parameter: **driver**.
 
@@ -122,7 +122,7 @@ internal `Logger`_ (Monolog) & `Event Dispatcher`_ (Symfony2).
     // Customize the configuration
     // ..
 
-    $connection = DBAL\Factory::getConnection($parameters, $configuration);
+    $connection = DBAL\ConnectionFactory::create($parameters, $configuration);
 
 Extensibility
 ^^^^^^^^^^^^^
@@ -137,14 +137,14 @@ A custom driver implementation can allow to define your own adapter, platform or
 
     <?php
 
-    use Fridge\DBAL\Factory;
+    use Fridge\DBAL\ConnectionFactory;
 
     $parameters = array(
         'driver_class' => 'My\Namespace\Driver',
         // ..
     );
 
-    $connection = Factory::getConnection($parameters);
+    $connection = ConnectionFactory::create($parameters);
 
 .. note::
 
@@ -164,14 +164,14 @@ A custom connection implementation will allow you to override all other features
 
     <?php
 
-    use Fridge\DBAL\Factory;
+    use Fridge\DBAL\ConnectionFactory;
 
     $parameters = array(
         'connection_class' => 'My\Namespace\Connection',
         // ..
     );
 
-    $connection = Factory::getConnection($parameters);
+    $connection = ConnectionFactory::create($parameters);
 
 .. note::
 
