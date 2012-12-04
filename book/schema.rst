@@ -12,7 +12,7 @@ sequences, views, etc... These schema instances generate a representation that i
 
 This UML diagram shows you the Fridge schema architecture.
 
-.. image:: /images/uml/schema.jpeg
+.. image:: /images/uml/schema.png
    :alt: UML Schema
    :align: center
 

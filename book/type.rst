@@ -12,7 +12,7 @@ Build-in Types
 
 This UML diagram shows you the type architecture:
 
-.. image:: /images/uml/type.jpeg
+.. image:: /images/uml/type.png
    :alt: UML Schema
    :align: center
 
